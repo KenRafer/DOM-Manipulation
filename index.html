@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+    
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+    
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        li {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 10px;
+        }
+    
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+    
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+    
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="container">
+        <div id="content-list">
+            <h2 id="title">Hi there! I'm Kenneth Rafer, and this is my bucket list:</h2>
+            <ul>
+                <li>
+                    Become rich and buy anything that I want.
+                </li>
+                <li>
+                    Try out different cuisines from around the world.
+                </li>
+                <li>
+                    Become very skilled at playing guitar.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Input Field -->
+    <p>    
+    Add New: <input type="text" id="newSkill" placeholder="add new here">
+    </p>
+
+    <!-- Buttons to change style -->
+    <button onclick="addNewElement()">Add new item on the list</button>
+    <button onclick="changeFontFamily()">Change font family</button>
+    <button onclick="makeItemsBold()">Make items bold</button>
+
+    <script>
+
+        function addNewElement() {
+            var myInput = document.getElementById("newSkill").value;
+            var ul = document.querySelector('ul');
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(myInput));
+            ul.appendChild(li);
+        }
+
+        function changeFontFamily() {
+            var lis = document.querySelectorAll('li');
+            lis.forEach(function(li) {
+                li.style.fontFamily = 'Georgia';
+            });
+        }
+
+        function makeItemsBold() {
+            var lis = document.querySelectorAll('li');
+            lis.forEach(function(li) {
+                li.style.fontWeight = 'bold';
+            });
+        }
+
+    </script>
+
+</body>
+</html>
